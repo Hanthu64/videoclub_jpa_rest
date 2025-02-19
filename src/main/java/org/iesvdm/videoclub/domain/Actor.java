@@ -13,21 +13,22 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-@Table(name = "categoria")
+@Table(name = "actor")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class Categoria {
+public class Actor {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_categoria")
+    @Column(name = "id_actor")
     private long id;
     private String nombre;
+    private String apellidos;
 
     @ManyToMany(
-            mappedBy = "categorias")
+            mappedBy = "actores")
     @JsonIgnore
     Set<Pelicula> peliculas = new HashSet<>();
 

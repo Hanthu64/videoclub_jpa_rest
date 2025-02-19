@@ -63,6 +63,13 @@ public class Pelicula {
             inverseJoinColumns = @JoinColumn(name = "id_categoria", referencedColumnName = "id_categoria"))
     Set<Categoria> categorias = new HashSet<>();
 
+    @ManyToMany
+    @JoinTable(
+            name = "pelicula_actor",
+            joinColumns = @JoinColumn(name = "id_pelicula", referencedColumnName = "id_pelicula"),
+            inverseJoinColumns = @JoinColumn(name = "id_actor", referencedColumnName = "id_actor"))
+    Set<Actor> actores = new HashSet<>();
+
     @Column(name = "ultima_actualizacion")
     @JsonFormat(pattern = "yyyy-MM-dd-HH:mm:ss",  shape = JsonFormat.Shape.STRING)
     private Date ultimaActualizacion;
